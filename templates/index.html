@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Stock Price Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h5 {
+        text-align: center;
+        margin-top: 1px;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+      form {
+        width: 400px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      select, input[type="number"], input[type="date"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stock Price Prediction</h1>
+    <h5> Here we predict the closing price of the selected <br> currency using the features below</h5>
+    <form method="post" action="{{ url_for('predict') }}">
+      <label for="coin_name">Coin Name:</label>
+      <select name="coin_name" id="coin_name">
+        <option value="ADA_GBP">ADA_GBP</option>
+        <option value="ATOM_GBP">ATOM_GBP</option>
+        <option value="AVAX_GBP">AVAX_GBP</option>
+        <option value="BNB_GBP">BNB_GBP</option>
+        <option value="BTC_GBP">BTC_GBP</option>
+        <option value="DAI_GBP">DAI_GBP</option>
+        <option value="DOGE_GBP">DOGE_GBP</option>
+        <option value="DOT_GBP">DOT_GBP</option>
+        <option value="ETH_GBP">ETH_GBP</option>
+        <option value="FIL_GBP">FIL_GBP</option>
+        <option value="FTM_GBP">FTM_GBP</option>
+        <option value="GRC_GBP">GRC_GBP</option>
+        <option value="LINK_GBP">LINK_GBP</option>
+        <option value="LTC_GBP">LTC_GBP</option>
+        <option value="MATIC_GBP">MATIC_GBP</option>
+        <option value="SOL_GBP">SOL_GBP</option>
+        <option value="TRX_GBP">TRX_GBP</option>
+        <option value="USDC_GBP">USDC_GBP</option>
+        <option value="USDT_GBP">USDT_GBP</option>
+        <option value="XRP_GBP">XRP_GBP</option>
+
+      </select>
+      <br><br>
+      <label for="date">Date:</label>
+      <input type="date" step="any" name="date" id="date">
+      <br><br>
+      <label for="open">Open:</label>
+      <input type="number" step="any" name="open" id="open">
+      <br><br>
+      <label for="high">High:</label>
+      <input type="number" step="any" name="high" id="high">
+      <br><br>
+      <label for="low">Low:</label>
+      <input type="number" step="any" name="low" id="low">
+      <br><br>
+      <label for="volume">Volume:</label>
+      <input type="number" step="any" name="volume" id="volume">
+      <br><br>
+      {{ data }}
+      <br> <br>
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>
